@@ -1,4 +1,4 @@
- /*Reverse a string from Command line argument by using singly LinkedList*/
+ /*Reverse a string by using singly LinkedList.*/
  
 #include<stdio.h>
 #include<malloc.h>
