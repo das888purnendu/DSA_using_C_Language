@@ -1,0 +1,52 @@
+ /*Reverse a string from Command line argument by using singly LinkedList*/
+ 
+#include<stdio.h>
+#include<malloc.h>
+
+struct node{
+	char alpha;
+	struct node *next;
+};
+void main() 
+{
+	struct node *head,*current,*temp,*n,*p=NULL;
+  char inp_str[100]="PURNENDU DAS";
+	int i;
+	head=(struct node*)malloc(sizeof(struct node)); 
+	current=head;
+	while(inp_str[i]!='\0')
+	{
+		
+		current->alpha=inp_str[i];
+		temp=(struct node*)malloc(sizeof(struct node));
+		current->next=temp;
+		current=temp;
+		i++;
+	}
+	current->alpha='\0';
+	current->next=NULL;
+	
+	
+	current=head;
+	
+	temp=(struct node*)malloc(sizeof(struct node));
+	temp->alpha='\0';
+	temp->next=NULL;
+	p=temp;
+	
+	while(current->next!=NULL){
+		n = current->next;
+		current->next = p;
+		p=current;
+		current=n;
+	}
+	
+	current->next=p;
+	head = current;
+	
+	while(current->next!=NULL){
+		printf("%c",current->alpha);
+		current=current->next;
+	}
+
+}
